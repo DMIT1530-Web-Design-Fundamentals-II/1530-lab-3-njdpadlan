@@ -1,0 +1,200 @@
+/* I used CSS Animations to change the color of my text every few seconds. I've set the whole duration to be 10 seconds long and to infinitely repeat.
+ Check my code at line 121*/
+
+:root {
+  --dk-grey: #263238;
+  --hot-pink: #EC407A;
+  --yellow: #FDD835;
+  --green: #8BC34A;
+  --white: #FAFAFA;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+
+header {
+  background-color: var(--dk-grey);
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header img {
+  max-width: 2rem;
+}
+
+.main-menu img {
+  max-width: 1.2rem;
+}
+
+.toggle-btn {
+  color: var(--white);
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+}
+
+nav {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  background-color: var(--dk-grey);
+}
+
+.show-nav {
+  max-height: unset;
+  overflow: visible;
+}
+
+nav li {
+  margin: 0.5rem 0;
+}
+
+
+.banner {
+  background-image: url('../img/crowd-background.webp');
+  background-position: center;
+  background-size: cover;
+  height: calc(90vh - 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-text {
+	background-color: var(--white);
+	opacity: 95%;
+	max-width: 50%;
+	padding: 3.5rem;
+}
+
+.banner a {
+  text-decoration: none;
+  background: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+  padding: 1rem 3rem;
+  border-radius: 2rem;
+}
+
+.banner p {
+    margin: 1rem 0 3rem 0;
+}
+
+.first-link {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.first-link img {
+  width: 1rem;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+
+.first-link img {
+  display: none;
+}
+
+span {
+  color: var(--hot-pink );
+}
+
+/* ANIMATION */
+p {
+  font-weight: bold;
+  animation-name: textanimate;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes textanimate {
+  0%   {color: var(--dk-grey);}
+  25%   {color: var(--yellow);}
+  50%  {color: var(--green);}
+  75%  {color: var(--dk-grey);}
+  100% {color: var(--hot-pink);}
+}
+
+
+@media screen and (min-width: 950px) {
+
+  .inner-container {
+    display: flex;
+  }
+
+  h1 {
+    margin-left: 15rem;
+  }
+
+  .toggle-btn {
+      display: none;
+  }
+
+  .first-link img {
+      display: unset;
+  }
+
+  nav {
+      position: static;
+      overflow: visible;
+  }
+
+  nav ul li {
+      list-style-type: none;
+  }
+
+  .main-menu {
+      display: flex;
+      justify-content: space-evenly;
+  }
+
+  .main-menu li {
+      position: relative;
+  }
+
+  .main-menu > li {
+      margin: 1rem;
+  }
+
+  .second-tier {
+      width: 20rem;
+      background-color: var(--dk-grey);
+      padding: 0 0 1rem 1rem;
+      visibility: hidden;
+  }
+
+  .main-menu li:hover > .second-tier,
+  .second-tier li:hover > .third-tier,
+  ul li:focus-within > ul {
+      visibility: visible;
+  }
+
+  .second-tier {
+      left: -20%;
+      text-align: left;
+  }
+
+  .banner-text
+  {
+    max-width: 20%;
+    padding: 3.5rem;
+  }
+}
